@@ -26,7 +26,7 @@ function checkAnswer() {
       console.log(`Congratulations, ${user}!`);
     }
   } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven}'.\nLet's try again,${user}!`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven}'.\nLet's try again, ${user}!`);
   }
 }
 
