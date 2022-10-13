@@ -13,7 +13,7 @@ function findGCD(x, y) {
 export function playRound() {
   const num1 = getRandomNumber(100);
   const num2 = getRandomNumber(100);
-  const numbers = `${num1}, ${num2}`;
+  const numbers = `${num1} ${num2}`;
   const answer = Number(getAnswer(numbers));
   const gcd = findGCD(num1, num2);
   return isTrueAnswer(answer, gcd);
