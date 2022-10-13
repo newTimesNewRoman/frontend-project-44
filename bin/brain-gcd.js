@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import playBrainGCD from '../games/brain-gcd-code.js';
+import { playBrainGame } from '../src/index.js';
+import { playRound, gameDescription } from '../games/brain-gcd-code.js';
 
-playBrainGCD();
+playBrainGame(playRound, gameDescription);
