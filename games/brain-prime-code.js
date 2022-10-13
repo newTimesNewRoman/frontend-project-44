@@ -1,5 +1,5 @@
 import {
-  getRandomNumber, getAnswer, isTrueAnswer,
+  getRandomNumberInRange, getAnswer, isTrueAnswer,
 } from '../src/index.js';
 
 export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -10,7 +10,7 @@ function isPrime(num) {
 }
 
 export function playRound() {
-  const randomNumber = getRandomNumber(25);
+  const randomNumber = getRandomNumberInRange(1, 25);
   const answer = getAnswer(randomNumber).toLowerCase();
   const isPrimeNumber = isPrime(randomNumber);
   return isTrueAnswer(answer, isPrimeNumber);
