@@ -11,7 +11,7 @@ function isPrime(num) {
 
 export function playRound() {
   const randomNumber = getRandomNumber(25);
-  const answer = getAnswer(randomNumber);
+  const answer = getAnswer(randomNumber).toLowerCase();
   const isPrimeNumber = isPrime(randomNumber);
   return isTrueAnswer(answer, isPrimeNumber);
 }
