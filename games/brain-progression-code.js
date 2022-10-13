@@ -1,8 +1,8 @@
 import {
-  user, sayHi, getRandomNumber, getAnswer,
+  getRandomNumber, getRandomNumberInRange, getAnswer, isTrueAnswer,
 } from '../src/index.js';
 
-let counter = 0;
+export const gameDescription = 'What number is missing in the progression?';
 
 function createProgression(start, interval) {
   const progressionList = [start];
@@ -18,29 +18,13 @@ function deleteUnitProgression(progression, deleteUnitIndex) {
   return progressionWithoutUnit;
 }
 
-function checkAnswer() {
+export function playRound() {
   const startNumber = getRandomNumber(25);
-  const intervalNumber = getRandomNumber(10);
+  const intervalNumber = getRandomNumberInRange(1, 10);
   const progressionList = createProgression(startNumber, intervalNumber);
   const deleteIndex = getRandomNumber(10);
   const progressionListDeleteUnit = deleteUnitProgression(progressionList, deleteIndex);
   const questionProgressionList = `${progressionListDeleteUnit}`;
   const answer = Number(getAnswer(questionProgressionList));
-  if (answer === progressionList[deleteIndex]) {
-    console.log('Correct!');
-    counter += 1;
-    if (counter < 3) {
-      checkAnswer();
-    } else {
-      console.log(`Congratulations, ${user}!`);
-    }
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${progressionList[deleteIndex]}'.\nLet's try again, ${user}!`);
-  }
-}
-
-export default function playBrainProgression() {
-  sayHi(user);
-  console.log('What number is missing in the progression?');
-  checkAnswer();
+  return isTrueAnswer(answer, progressionList[deleteIndex]);
 }

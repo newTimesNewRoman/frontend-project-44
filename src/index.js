@@ -10,13 +10,17 @@ export function getRandomNumber(maxNumber) {
   return Math.floor(Math.random() * maxNumber);
 }
 
+export function getRandomNumberInRange(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+}
+
 export function getAnswer(question) {
   const answer = readlineSync.question(`Question: ${question}\nYour answer: `);
   return answer;
 }
 
 export function isTrueAnswer(userAnswer, trueAnswer) {
-  if (userAnswer.toLowerCase() === trueAnswer) {
+  if (userAnswer === trueAnswer) {
     console.log('Correct!');
     return true;
   }
