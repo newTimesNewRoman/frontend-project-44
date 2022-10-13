@@ -24,7 +24,7 @@ export function playRound() {
   const progressionList = createProgression(startNumber, intervalNumber);
   const deleteIndex = getRandomNumber(10);
   const progressionListDeleteUnit = deleteUnitProgression(progressionList, deleteIndex);
-  const questionProgressionList = `${progressionListDeleteUnit}`;
+  const questionProgressionList = `${progressionListDeleteUnit.join(' ')}`;
   const answer = Number(getAnswer(questionProgressionList));
   return isTrueAnswer(answer, progressionList[deleteIndex]);
 }
