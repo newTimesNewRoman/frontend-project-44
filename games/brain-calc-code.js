@@ -1,8 +1,8 @@
 import {
-  user, sayHi, getRandomNumber, getAnswer,
+  getRandomNumber, getAnswer, isTrueAnswer,
 } from '../src/index.js';
 
-let counter = 0;
+export const gameDescription = 'What is the result of the expression?';
 
 const operators = [{
   sign: '+',
@@ -15,27 +15,11 @@ const operators = [{
   method(a, b) { return a * b; },
 }];
 
-function checkAnswer() {
-  const n1 = getRandomNumber(25);
-  const n2 = getRandomNumber(25);
+export function playRound() {
+  const num1 = getRandomNumber(25);
+  const num2 = getRandomNumber(25);
   const selectedOperator = getRandomNumber(3);
-  const expression = `${n1} ${operators[selectedOperator].sign} ${n2}`;
+  const expression = `${num1} ${operators[selectedOperator].sign} ${num2}`;
   const answer = Number(getAnswer(expression));
-  if (answer === operators[selectedOperator].method(n1, n2)) {
-    console.log('Correct!');
-    counter += 1;
-    if (counter < 3) {
-      checkAnswer();
-    } else {
-      console.log(`Congratulations, ${user}!`);
-    }
-  } else {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${operators[selectedOperator].method(n1, n2)}'.\nLet's try again, ${user}!`);
-  }
-}
-
-export default function playBrainCalc() {
-  sayHi(user);
-  console.log('What is the result of the expression?');
-  checkAnswer();
+  return isTrueAnswer(answer, operators[selectedOperator].method(num1, num2));
 }
