@@ -12,7 +12,7 @@ function findGCD(x, y) {
   return findGCD(y, x % y);
 }
 
-export function playRound() {
+function playRound() {
   const num1 = getRandomNumber(100);
   const num2 = getRandomNumber(100);
   const question = `${num1} ${num2}`;
