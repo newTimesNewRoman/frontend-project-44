@@ -10,9 +10,8 @@ function isEven(number) {
 
 function playRound() {
   const randomNumber = getRandomNumber(1, 100);
-  const question = randomNumber.toString();
   const expectedAnswer = (isEven(randomNumber) === true) ? 'yes' : 'no';
-  return [question, expectedAnswer];
+  return [randomNumber, expectedAnswer];
 }
 
 export default () => playBrainGame(playRound, gameDescription);
