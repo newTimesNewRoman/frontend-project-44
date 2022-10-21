@@ -6,8 +6,8 @@ function getAnswer(question) {
 }
 
 export default function playBrainGame(getRoundData, gameDescription) {
-  const scoreToWin = 3; 
-  const user = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ')
+  const scoreToWin = 3;
+  const user = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
   console.log(`Hello, ${user}!\n${gameDescription}`);
   for (let roundCounter = 1; roundCounter <= scoreToWin; roundCounter += 1) {
     const roundData = getRoundData();

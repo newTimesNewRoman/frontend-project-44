@@ -7,14 +7,10 @@ const gameDescription = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 
 function getResultOfExpression(operand1, operand2, operator) {
-  switch(operator) {
-    case '+':
-      return (operand1 + operand2);
-    case '-':
-      return (operand1 - operand2);
-    case '*':
-      return (operand1 * operand2);
-  }
+  if (operator === '+') return (operand1 + operand2);
+  if (operator === '-') return (operand1 - operand2);
+  if (operator === '*') return (operand1 * operand2);
+  return console.log('Error');
 }
 
 function playRound() {

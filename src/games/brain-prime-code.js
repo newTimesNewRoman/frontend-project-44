@@ -15,7 +15,7 @@ function isPrime(num) {
 function playRound() {
   const randomNumber = getRandomNumber(1, 25);
   const question = randomNumber.toString();
-  const expectedAnswer = (isPrime(randomNumber) === true) ? 'yes': 'no';
+  const expectedAnswer = (isPrime(randomNumber) === true) ? 'yes' : 'no';
   return [question, expectedAnswer];
 }
 

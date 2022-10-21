@@ -5,7 +5,7 @@ import playBrainGame from '../index.js';
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(number) {
-  return (number % 2 === 0) ? true : false;
+  return (number % 2 === 0);
 }
 
 function playRound() {
