@@ -1,29 +1,29 @@
-import {
-  getRandomNumber,
-} from '../get-random-num-func.js';
+import getRandomNumber from '../get-random-num-func.js';
 
 import playBrainGame from '../index.js';
 
 const gameDescription = 'What is the result of the expression?';
 
-const operators = [{
-  sign: '+',
-  method(a, b) { return a + b; },
-}, {
-  sign: '-',
-  method(a, b) { return a - b; },
-}, {
-  sign: '*',
-  method(a, b) { return a * b; },
-}];
+const operators = ['+', '-', '*'];
+
+function getResultOfExpression(operand1, operand2, operator) {
+  switch(operator) {
+    case '+':
+      return (operand1 + operand2);
+    case '-':
+      return (operand1 - operand2);
+    case '*':
+      return (operand1 * operand2);
+  }
+}
 
 function playRound() {
-  const num1 = getRandomNumber(25);
-  const num2 = getRandomNumber(25);
-  const selectedOperator = getRandomNumber(3);
-  const question = `${num1} ${operators[selectedOperator].sign} ${num2}`;
-  const trueAnswer = operators[selectedOperator].method(num1, num2).toString();
-  return [question, trueAnswer];
+  const num1 = getRandomNumber(1, 25);
+  const num2 = getRandomNumber(1, 25);
+  const selectedOperator = operators[getRandomNumber(0, 2)];
+  const question = `${num1} ${selectedOperator} ${num2}`;
+  const expectedAnswer = getResultOfExpression(num1, num2, selectedOperator).toString();
+  return [question, expectedAnswer];
 }
 
 export default () => playBrainGame(playRound, gameDescription);

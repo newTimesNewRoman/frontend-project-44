@@ -1,21 +1,22 @@
-import {
-  getRandomNumberInRange,
-} from '../get-random-num-func.js';
+import getRandomNumber from '../get-random-num-func.js';
 
 import playBrainGame from '../index.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
-  for (let i = 2, s = Math.sqrt(num); i <= s; i += 1) if (num % i === 0) return 'no';
-  return 'yes';
+  const sqrtNum = Math.sqrt(num);
+  for (let i = 2; i <= sqrtNum; i += 1) {
+    if (num % i === 0) return false;
+  }
+  return true;
 }
 
 function playRound() {
-  const randomNumber = getRandomNumberInRange(1, 25);
-  const question = randomNumber;
-  const trueAnswer = isPrime(randomNumber);
-  return [question, trueAnswer];
+  const randomNumber = getRandomNumber(1, 25);
+  const question = randomNumber.toString();
+  const expectedAnswer = (isPrime(randomNumber) === true) ? 'yes': 'no';
+  return [question, expectedAnswer];
 }
 
 export default () => playBrainGame(playRound, gameDescription);

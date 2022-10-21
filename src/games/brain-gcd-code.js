@@ -1,6 +1,4 @@
-import {
-  getRandomNumber,
-} from '../get-random-num-func.js';
+import getRandomNumber from '../get-random-num-func.js';
 
 import playBrainGame from '../index.js';
 
@@ -13,11 +11,11 @@ function findGCD(x, y) {
 }
 
 function playRound() {
-  const num1 = getRandomNumber(100);
-  const num2 = getRandomNumber(100);
+  const num1 = getRandomNumber(1, 100);
+  const num2 = getRandomNumber(1, 100);
   const question = `${num1} ${num2}`;
-  const trueAnswer = findGCD(num1, num2).toString();
-  return [question, trueAnswer];
+  const expectedAnswer = findGCD(num1, num2).toString();
+  return [question, expectedAnswer];
 }
 
 export default () => playBrainGame(playRound, gameDescription);
