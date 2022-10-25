@@ -17,7 +17,7 @@ function playRound() {
   const startNumber = getRandomNumber(1, 25);
   const interval = getRandomNumber(1, 10);
   const progressionList = createProgression(startNumber, interval);
-  const deleteIndex = getRandomNumber(0, 9);
+  const deleteIndex = getRandomNumber(0, progressionList.length - 1);
   const expectedAnswer = progressionList[deleteIndex].toString();
   progressionList[deleteIndex] = '..';
   const question = progressionList.join(' ');

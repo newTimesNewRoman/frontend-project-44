@@ -5,8 +5,12 @@ import playBrainGame from '../index.js';
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 function findGCD(x, y) {
-  if (y > x) return findGCD(y, x);
-  if (!y) return x;
+  if (y > x) {
+    return findGCD(y, x);
+  }
+  if (!y) {
+    return x;
+  }
   return findGCD(y, x % y);
 }
 

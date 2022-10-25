@@ -7,14 +7,16 @@ const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer
 function isPrime(num) {
   const sqrtNum = Math.sqrt(num);
   for (let i = 2; i <= sqrtNum; i += 1) {
-    if (num % i === 0) return false;
+    if (num % i === 0) {
+      return false;
+    }
   }
-  return true;
+  return num > 1;
 }
 
 function playRound() {
   const randomNumber = getRandomNumber(1, 25);
-  const expectedAnswer = (isPrime(randomNumber) === true) ? 'yes' : 'no';
+  const expectedAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [randomNumber, expectedAnswer];
 }
 
