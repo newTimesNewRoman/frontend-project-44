@@ -18,13 +18,12 @@ export default function playBrainGame(getRoundData, gameDescription) {
     const [roundQuestion, expectedAnswer] = getRoundData();
     const userAnswer = getAnswer(roundQuestion);
 
-    if (userAnswer === expectedAnswer.toLowerCase()) {
-      console.log('Correct!');
-    } else {
+    if (userAnswer !== expectedAnswer.toLowerCase()) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
       console.log(`Let's try again, ${user}!`);
       return;
     }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${user}!`);
 }
