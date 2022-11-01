@@ -23,7 +23,7 @@ cd frontend-project-44/
 make install
 ```
 
-Example:
+Example:    
 [![asciicast](https://asciinema.org/a/Vz9DPNZ4v2pc63LYWtOVY2ifH.svg)](https://asciinema.org/a/Vz9DPNZ4v2pc63LYWtOVY2ifH)
 
 ## 1. Brain-calc
