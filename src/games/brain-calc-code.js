@@ -22,7 +22,7 @@ function getResultOfExpression(operand1, operand2, operator) {
 function playRound() {
   const num1 = getRandomNumber(1, 25);
   const num2 = getRandomNumber(1, 25);
-  const selectedOperator = operators[getRandomNumber(0, 2)];
+  const selectedOperator = operators[getRandomNumber(0, operators.length - 1)];
   const question = `${num1} ${selectedOperator} ${num2}`;
   const expectedAnswer = getResultOfExpression(num1, num2, selectedOperator).toString();
   return [question, expectedAnswer];
